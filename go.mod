@@ -1,3 +1,5 @@
-module github.com/YOUR-USER-OR-ORG-NAME/YOUR-REPO-NAME
+module github.com/nathanpiina/golang_api_learning
 
 go 1.19
+
+require github.com/lib/pq v1.10.9
