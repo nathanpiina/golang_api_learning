@@ -12,7 +12,7 @@ var Db *sql.DB
 
 func Main() {
 	Db = database.DatabaseConnection()
-	SearchPeople("nickname")
+	CountRowsInTable()
 }
 
 func AddPeople(nickname string, name string, birth string, stack string) {
@@ -40,5 +40,17 @@ func SearchPeople(nickname string) {
 		fmt.Println("Erro ao escanear resultados:", err)
 	} else {
 		fmt.Printf("Nome: %s, Nascimento: %s, Stack: %s\n", name, birth, stack)
+	}
+}
+
+func CountRowsInTable() {
+	var rowCount int
+	row := Db.QueryRow("SELECT COUNT(*) FROM people")
+
+	err := row.Scan(&rowCount)
+	if err != nil {
+		fmt.Println("Erro ao escanear resultados:", err)
+	} else {
+		fmt.Printf("Total de linhas na tabela: %d\n", rowCount)
 	}
 }
