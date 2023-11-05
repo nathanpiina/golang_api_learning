@@ -1,8 +1,7 @@
 package person
 
 type PeopleActions interface {
-	AddPeople(),
-	SearchPeople(),
+	AddPeople()
+	SearchPeople()
 	CountRowsInTable()
 }
-
