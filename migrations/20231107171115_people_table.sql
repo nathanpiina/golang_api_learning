@@ -1,10 +1,12 @@
 -- +goose Up
 -- +goose StatementBegin
 CREATE TABLE People (
-    nickname VARCHAR(50) PRIMARY KEY,
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    nickname VARCHAR(50) UNIQUE NOT NULL,
     name VARCHAR(100),
     birth DATE,
-    stack VARCHAR(100)
+    stack VARCHAR(50)
 );
+
 -- +goose Down
 DROP TABLE People;
