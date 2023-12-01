@@ -3,9 +3,9 @@ package person
 import (
 	"database/sql"
 	"fmt"
+	"log"
 	_ "github.com/lib/pq"
 	"github.com/nathanpiina/golang_api_learning/database"
-	"log"
 )
 
 var Db *sql.DB
@@ -23,6 +23,8 @@ func AddPeople(nickname string, name string, birth string, stack string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Println("Usuario adicionado com sucesso")
 }
 
 func SearchPeople(nickname string) {
